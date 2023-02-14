@@ -315,6 +315,11 @@ public class ReactModalHostView extends ViewGroup
                   return currentActivity.onKeyUp(keyCode, event);
                 }
               }
+            } else if (event.getAction() == KeyEvent.ACTION_DOWN) {
+              Activity currentActivity = ((ReactContext) getContext()).getCurrentActivity();
+              if (currentActivity != null) {
+                return currentActivity.onKeyDown(keyCode, event);
+              }
             }
             return false;
           }
